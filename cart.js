@@ -54,6 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
             cartIcon.classList.remove("cart-bounce");
         }, 500);
     }
+    
+    const removeAllBtn = document.getElementById("remove-all-btn");
+if (removeAllBtn) {
+    removeAllBtn.addEventListener("click", function () {
+        cart = []; // Clear the cart array
+        localStorage.setItem("cart", JSON.stringify(cart)); // Save empty cart to local storage
+        updateCartDisplay(); // Refresh cart UI and counter
+    });
+}
+
 
     function updateCartDisplay() {
         cartItemsContainer.innerHTML = "";
