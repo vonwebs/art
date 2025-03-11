@@ -8,6 +8,9 @@
     <link rel="canonical" href="index.html">
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000"> <!-- Matches manifest -->
+<link rel="manifest" href="/manifest.json">
     <title>Racour Store</title>
   
     <meta name="description" content="Welcome to My World of Art.">
@@ -3371,6 +3374,15 @@ document.querySelectorAll(".add-to-cart").forEach(button => {
       e.preventDefault();
     }
   });
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker registered'))
+        .catch(err => console.log('Service Worker failed:', err));
+    });
+  }
 </script>
 
 
